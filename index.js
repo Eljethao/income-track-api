@@ -15,7 +15,7 @@ connectDB();
 // Middleware
 app.use(express.json());
 
-app.use("v1/api/users", userRoutes);
+app.use("/v1/api/users", userRoutes);
 
 app.use('/health', (req,res) => {
     res.status(200).json({
