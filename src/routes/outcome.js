@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const outcomeController = require('../controllers/outcomeController'); // Adjust path as needed
+const outcomeController = require('../controllers/outcome'); // Adjust path as needed
 
 router.post('/outcomes', outcomeController.createOutcome);
 router.get('/outcomes', outcomeController.getOutcomes);
