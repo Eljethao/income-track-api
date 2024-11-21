@@ -10,11 +10,11 @@ const outcomeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    category: {
+    categoryImage: {
       type: String,
       required: true,
     },
-    categoryIconName: String
+    categoryName: String
   },
   { timestamps: true }
 );
