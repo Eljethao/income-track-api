@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const outcomeController = require('../controllers/outcome'); // Adjust path as needed
+const { createOutcome, getOutcomes, getOutcomeById, updateOutcome, deleteOutcome } = require('../controllers/outcome');
 
-router.post('/', outcomeController.createOutcome);
-router.get('/', outcomeController.ge);
-router.get('/:id', outcomeController.getOutcomeById);
-router.put('/:id', outcomeController.updateOutcome);
-router.delete('/:id', outcomeController.deleteOutcome);
+router.post('/', createOutcome);
+router.get('/', getOutcomes);
+router.get('/:id', getOutcomeById);
+router.put('/:id', updateOutcome);
+router.delete('/:id', deleteOutcome);
 
 module.exports = router;

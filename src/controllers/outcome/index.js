@@ -1,7 +1,7 @@
 const Outcome = require('../../models/outcome'); // Adjust the path as necessary
 
 // Create a new outcome
-exports.createOutcome = async (req, res) => {
+ const createOutcome = async (req, res) => {
   try {
     const { amount, description, category, categoryIconName } = req.body;
     const outcome = new Outcome({ amount, description, category, categoryIconName });
@@ -13,7 +13,7 @@ exports.createOutcome = async (req, res) => {
 };
 
 // Read all outcomes
-exports.getOutcomes = async (req, res) => {
+ const getOutcomes = async (req, res) => {
   try {
     const outcomes = await Outcome.find();
     res.status(200).json(outcomes);
@@ -23,7 +23,7 @@ exports.getOutcomes = async (req, res) => {
 };
 
 // Read a single outcome by ID
-exports.getOutcomeById = async (req, res) => {
+ const getOutcomeById = async (req, res) => {
   try {
     const { id } = req.params;
     const outcome = await Outcome.findById(id);
@@ -37,7 +37,7 @@ exports.getOutcomeById = async (req, res) => {
 };
 
 // Update an outcome by ID
-exports.updateOutcome = async (req, res) => {
+ const updateOutcome = async (req, res) => {
   try {
     const { id } = req.params;
     const updatedOutcome = await Outcome.findByIdAndUpdate(id, req.body, {
@@ -54,7 +54,7 @@ exports.updateOutcome = async (req, res) => {
 };
 
 // Delete an outcome by ID
-exports.deleteOutcome = async (req, res) => {
+ const deleteOutcome = async (req, res) => {
   try {
     const { id } = req.params;
     const deletedOutcome = await Outcome.findByIdAndDelete(id);
@@ -66,3 +66,12 @@ exports.deleteOutcome = async (req, res) => {
     res.status(500).json({ message: 'Failed to delete outcome', error });
   }
 };
+
+
+module.exports ={
+    createOutcome,
+    getOutcomes,
+    getOutcomeById,
+    updateOutcome,
+    deleteOutcome
+}
