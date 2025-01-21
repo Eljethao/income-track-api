@@ -8,17 +8,24 @@ const outcomeSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
     },
     categoryImage: {
       type: String,
       required: true,
     },
-    categoryName: String
+    categoryName: String,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
   },
-  { timestamps: true }
 );
 
-const Outcome = mongoose.model("Outcome", outcomeSchema);
+const outComeModel = mongoose.model("Outcome", outcomeSchema);
 
-module.exports = Outcome;
+module.exports = outComeModel;
