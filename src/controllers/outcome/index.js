@@ -134,7 +134,7 @@ const deleteOutcome = async (req, res) => {
 
 const getSumaryByCategory = async (req, res) => {
   try {
-    console.log("req.query: ", req.query)
+    // console.log("req.query: ", req.query)
     const findby = buildFindBy(req.query);
 
     const skip = parseInt(req.query.skip, 10) || 0;
