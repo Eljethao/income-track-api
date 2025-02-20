@@ -18,10 +18,13 @@ const buildFindBy = (query) => {
       const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
       const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
       const startOfLastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-      const endOfLastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      const endOfLastMonth = new Date(today.getFullYear(), today.getMonth(), 1);
       const startOfYear = new Date(today.getFullYear(), 0, 1);
       const startOfLastYear = new Date(today.getFullYear() - 1, 0, 1);
       const endOfLastYear = new Date(today.getFullYear() - 1, 11, 31);
+
+      console.log("startOfLastMonth: ", startOfLastMonth)
+      console.log("endOfLastMonth: ", endOfLastMonth)
 
       if(query.date === "today") {
       findby.createdAt = { $gte: new Date().setHours(0, 0, 0, 0), $lte: new Date().setHours(23, 59, 59, 999) };
@@ -37,6 +40,8 @@ const buildFindBy = (query) => {
       findby.createdAt = { $gte: startOfLastYear, $lte: endOfLastYear };
       }
     }
+
+    console.log("findby: ", findby)
   
     return findby;
   };
